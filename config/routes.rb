@@ -14,6 +14,7 @@ LocBoxSas::Application.routes.draw do
   get '/manager/edit' => 'manager#edit'
   post '/manager/edit' => 'manager#edit'
   get  '/manager/add_staff' => 'manager#add_staff'
+  get  '/manager/add_staff_helper' => 'manager#add_staff_helper'
   get  '/manager/read_staff' => 'manager#read_staff'
   get  '/manager/update_staff' => 'manager#update_staff'
   get  '/manager/delete_staff' => 'manager#delete_staff'

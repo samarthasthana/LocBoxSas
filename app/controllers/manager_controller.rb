@@ -22,11 +22,25 @@ class ManagerController < ApplicationController
 	def add_staff
 	# SHOW ALL THE STAFF THAT ARE UNASSIGNED TO MANAGERS and add	
 		@uid=session[:id]
-		@as=Assoc.all()		
+		@as=Assoc.all()			
+		
+	end
+
+	def add_staff_helper
+			@as=Assoc.find_by_s_id(params[:sid])
+			if(!@as.nil?)
+			Assoc.update(@as.id,:m_id=>@uid, :s_id=>params[:id])
+			flash[:notice]="Update successful"
+			redirect_to '/manager/home_page'
+		else
+			flash[:notice]="Update NOT successful"
+			redirect_to '/manager/add_staff'
+		end					
 	end
 
 	def read_staff
 	# show all the staff that are assigned to this manager
+	
 	end
 
 	def update_staff

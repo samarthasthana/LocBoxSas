@@ -1,12 +1,13 @@
 <h1>Unassigned Staff members</h1>
 
-<%= @as.each do |a|  %>
+<% @as.each do |a|  %>
 <% if a.m_id != @uid %>
 <%  u=User.find(a.s_id) %>
 <% if ! u.nil? %>
-<p>Name : <%= u.name %>   Email: <%= u.email %></p>
+<p>Name : <%= u.name %>   Email: <%= u.email %> <li><%= link_to "Add" ,{:controller=>'manager',:action=>'add_staff_helper', :sid =>u.id} %></li> </p>
 <% else %>
 <p>NO STAFF FOUND </p>
 <% end %>
 <% end %>
 <% end %>
+	
