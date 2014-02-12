@@ -29,7 +29,7 @@ class ManagerController < ApplicationController
 	def add_staff_helper
 			@as=Assoc.find_by_s_id(params[:sid])
 			if(!@as.nil?)
-			Assoc.update(@as.id,:m_id=>@uid, :s_id=>params[:id])
+			Assoc.update(@as.id,:m_id=>@uid, :s_id=>params[:sid])
 			flash[:notice]="Update successful"
 			redirect_to '/manager/home_page'
 		else
@@ -40,7 +40,8 @@ class ManagerController < ApplicationController
 
 	def read_staff
 	# show all the staff that are assigned to this manager
-	
+		@uid=session[:id]
+		@as=Assoc.all()	
 	end
 
 	def update_staff
