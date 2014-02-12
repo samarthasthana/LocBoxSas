@@ -1,0 +1,7 @@
+<h1>Staff Home Page</h1>
+
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+
+<li><%= link_to "Edit Account info" ,{:controller=>'staff',:action=>'edit'} %></li>
+
