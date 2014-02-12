@@ -1,14 +1,14 @@
 <h1>Manager Home Page</h1>
 
 <p>Name: <%= @user.name %></p>
-<p>Email: <%= @user.eamil %></p>
+<p>Email: <%= @user.email %></p>
 
 <li><%= link_to "Edit Account info" ,{:controller=>'manager',:action=>'edit'} %></li>
 
-<li><%= link_to "Add Staff members" ,{:controller=>'user',:action=>'create'} %></li>
+<li><%= link_to "Add Staff members" ,{:controller=>'manager',:action=>'add_staff'} %></li>
 
-<li><%= link_to "Read Staff Info" ,{:controller=>'user',:action=>'create'} %></li>
+<li><%= link_to "Read Staff Info" ,{:controller=>'manager',:action=>'read_staff'} %></li>
 
-<li><%= link_to "Update Staff Info" ,{:controller=>'user',:action=>'create'} %></li>
+<li><%= link_to "Update Staff Info" ,{:controller=>'manager',:action=>'update_staff'} %></li>
 
-<li><%= link_to "Delete Staff Info" ,{:controller=>'user',:action=>'create'} %></li>
+<li><%= link_to "Delete Staff Info" ,{:controller=>'manager',:action=>'delete_staff'} %></li>

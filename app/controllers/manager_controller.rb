@@ -20,17 +20,20 @@ class ManagerController < ApplicationController
 	end
 
 	def add_staff
-		
+	# SHOW ALL THE STAFF THAT ARE UNASSIGNED TO MANAGERS and add	
+		@uid=session[:id]
+		@as=Assoc.all()		
 	end
 
 	def read_staff
-		
+	# show all the staff that are assigned to this manager
 	end
 
 	def update_staff
+	# update staff info
 	end
 
 	def delete_staff
-		
+	# remove staff from this manager
 	end
 end

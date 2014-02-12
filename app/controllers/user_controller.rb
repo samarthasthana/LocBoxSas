@@ -21,12 +21,15 @@ class UserController < ApplicationController
 	def create
 		if request.post?
 			@us=User.new
+			@as=Assoc.new
 		 	@u=User.find_by_name(params[:name])
 		 	if(@u.nil?)
 		 		@us.name=params[:name]
 		 		@us.email=params[:email]
 		 		@us.memtype='s'
 		 		@us.save!
+		 		@as.s_id=@us.id
+		 		@as.save!
 			 	flash[:notice]="New user was successfully registered"
 			 	redirect_to '/'
 		 	else

@@ -13,7 +13,10 @@ LocBoxSas::Application.routes.draw do
   get '/manager/home_page' => 'manager#home_page'
   get '/manager/edit' => 'manager#edit'
   post '/manager/edit' => 'manager#edit'
-
+  get  '/manager/add_staff' => 'manager#add_staff'
+  get  '/manager/read_staff' => 'manager#read_staff'
+  get  '/manager/update_staff' => 'manager#update_staff'
+  get  '/manager/delete_staff' => 'manager#delete_staff'
 
   get '/staff/home_page' => 'staff#home_page'
   get '/staff/edit' => 'staff#edit'
