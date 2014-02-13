@@ -4214,3 +4214,379 @@ ActiveRecord::RecordNotFound (Couldn't find User without an ID):
   [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."memtype" = 'm' LIMIT 1
   [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "memtype", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 12 Feb 2014 23:57:33 UTC +00:00], ["email", "man1@locbox.com"], ["memtype", "m"], ["name", "manager1"], ["updated_at", Wed, 12 Feb 2014 23:57:33 UTC +00:00]]
   [1m[35m (197.3ms)[0m  commit transaction
+
+
+Started GET "/manager/add_staff" for 127.0.0.1 at 2014-02-12 18:59:43 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ManagerController#add_staff as HTML
+  [1m[35mAssoc Load (0.3ms)[0m  SELECT "assocs".* FROM "assocs"
+  Rendered manager/add_staff.erb within layouts/application (2.9ms)
+Completed 200 OK in 90ms (Views: 61.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/create" for 127.0.0.1 at 2014-02-12 18:59:56 -0500
+Processing by UserController#create as HTML
+  Rendered user/create.erb within layouts/application (3.7ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create" for 127.0.0.1 at 2014-02-12 19:00:04 -0500
+Processing by UserController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xuCjoBgg+vBpNJIEbb96aH4sMT4bNVSRnYYTnY/xVYg=", "name"=>"staff1", "email"=>"staff1@locbox.com", "commit"=>"Register"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'staff1' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."name" = 'staff1' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff1@locbox.com' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."memtype" = 's' LIMIT 1[0m
+  [1m[35mSQL (30.6ms)[0m  INSERT INTO "users" ("created_at", "email", "memtype", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Thu, 13 Feb 2014 00:00:05 UTC +00:00], ["email", "staff1@locbox.com"], ["memtype", "s"], ["name", "staff1"], ["updated_at", Thu, 13 Feb 2014 00:00:05 UTC +00:00]]
+  [1m[36m (195.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "assocs" ("created_at", "s_id", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Thu, 13 Feb 2014 00:00:05 UTC +00:00], ["s_id", 2], ["updated_at", Thu, 13 Feb 2014 00:00:05 UTC +00:00]]
+  [1m[35m (151.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 435ms (ActiveRecord: 382.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+Processing by UserController#login as HTML
+  Rendered user/login.erb within layouts/application (1.9ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/staff.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/manager.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/manager.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/staff.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:05 -0500
+
+
+Started POST "/" for 127.0.0.1 at 2014-02-12 19:00:13 -0500
+Processing by UserController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xuCjoBgg+vBpNJIEbb96aH4sMT4bNVSRnYYTnY/xVYg=", "name"=>"staff1", "email"=>"staff1@locbox.com", "commit"=>"login"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'staff1' LIMIT 1[0m
+Redirected to http://localhost:3000/staff/home_page
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/staff/home_page" for 127.0.0.1 at 2014-02-12 19:00:13 -0500
+Processing by StaffController#home_page as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered staff/home_page.erb within layouts/application (1.4ms)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:13 -0500
+
+
+Started GET "/assets/manager.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:13 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:14 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:14 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:14 -0500
+
+
+Started GET "/assets/staff.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:14 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:14 -0500
+
+
+Started GET "/assets/staff.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:14 -0500
+
+
+Started GET "/assets/manager.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:14 -0500
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:14 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:14 -0500
+
+
+Started POST "/" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+Processing by UserController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xuCjoBgg+vBpNJIEbb96aH4sMT4bNVSRnYYTnY/xVYg=", "name"=>"manager1", "email"=>"man1@locbox.com", "commit"=>"login"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'manager1' LIMIT 1[0m
+Redirected to http://localhost:3000/manager/home_page
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/manager/home_page" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+Processing by ManagerController#home_page as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered manager/home_page.erb within layouts/application (2.6ms)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/staff.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/manager.css?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/manager.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/staff.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-12 19:00:25 -0500
+
+
+Started GET "/manager/add_staff" for 127.0.0.1 at 2014-02-12 19:00:27 -0500
+Processing by ManagerController#add_staff as HTML
+  [1m[36mAssoc Load (0.3ms)[0m  [1mSELECT "assocs".* FROM "assocs"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered manager/add_staff.erb within layouts/application (3.3ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/manager/add_staff_helper?sid=2" for 127.0.0.1 at 2014-02-12 19:00:28 -0500
+Processing by ManagerController#add_staff_helper as HTML
+  Parameters: {"sid"=>"2"}
+  [1m[36mAssoc Load (0.7ms)[0m  [1mSELECT "assocs".* FROM "assocs" WHERE "assocs"."s_id" = 2 LIMIT 1[0m
+  [1m[35mAssoc Load (0.5ms)[0m  SELECT "assocs".* FROM "assocs" WHERE "assocs"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/manager/home_page
+Completed 302 Found in 12ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/manager/home_page" for 127.0.0.1 at 2014-02-12 19:00:29 -0500
+Processing by ManagerController#home_page as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered manager/home_page.erb within layouts/application (3.3ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/manager/read_staff" for 127.0.0.1 at 2014-02-12 19:00:31 -0500
+Processing by ManagerController#read_staff as HTML
+  [1m[35mAssoc Load (0.2ms)[0m  SELECT "assocs".* FROM "assocs"
+  Rendered manager/read_staff.erb within layouts/application (1.7ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/manager/read_staff" for 127.0.0.1 at 2014-02-12 19:01:57 -0500
+Processing by ManagerController#read_staff as HTML
+  [1m[36mAssoc Load (0.2ms)[0m  [1mSELECT "assocs".* FROM "assocs"[0m
+  Rendered manager/read_staff.erb within layouts/application (2.2ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/manager/read_staff" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+Processing by ManagerController#read_staff as HTML
+  [1m[35mAssoc Load (0.3ms)[0m  SELECT "assocs".* FROM "assocs"
+  Rendered manager/read_staff.erb within layouts/application (2.5ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/staff.css?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/manager.css?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/staff.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/manager.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:40 -0500
+
+
+Started GET "/manager/read_staff" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+Processing by ManagerController#read_staff as HTML
+  [1m[36mAssoc Load (0.4ms)[0m  [1mSELECT "assocs".* FROM "assocs"[0m
+  Rendered manager/read_staff.erb within layouts/application (2.7ms)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/manager.css?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/staff.css?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/manager.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/staff.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-12 19:02:45 -0500
+
+
+Started GET "/manager/home_page" for 127.0.0.1 at 2014-02-12 19:04:06 -0500
+Processing by ManagerController#home_page as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered manager/home_page.erb within layouts/application (1.9ms)
+Completed 200 OK in 20ms (Views: 9.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/manager/add_staff" for 127.0.0.1 at 2014-02-12 19:04:09 -0500
+Processing by ManagerController#add_staff as HTML
+  [1m[36mAssoc Load (0.2ms)[0m  [1mSELECT "assocs".* FROM "assocs"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered manager/add_staff.erb within layouts/application (7.5ms)
+Completed 200 OK in 20ms (Views: 14.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/manager/add_staff_helper?sid=2" for 127.0.0.1 at 2014-02-12 19:04:11 -0500
+Processing by ManagerController#add_staff_helper as HTML
+  Parameters: {"sid"=>"2"}
+  [1m[36mAssoc Load (0.2ms)[0m  [1mSELECT "assocs".* FROM "assocs" WHERE "assocs"."s_id" = 2 LIMIT 1[0m
+  [1m[35mAssoc Load (0.3ms)[0m  SELECT "assocs".* FROM "assocs" WHERE "assocs"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "assocs" SET "m_id" = ?, "updated_at" = ? WHERE "assocs"."id" = 1  [["m_id", 1], ["updated_at", Thu, 13 Feb 2014 00:04:11 UTC +00:00]]
+  [1m[36m (174.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/manager/home_page
+Completed 302 Found in 184ms (ActiveRecord: 175.7ms)
+
+
+Started GET "/manager/home_page" for 127.0.0.1 at 2014-02-12 19:04:11 -0500
+Processing by ManagerController#home_page as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered manager/home_page.erb within layouts/application (1.5ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/manager/read_staff" for 127.0.0.1 at 2014-02-12 19:04:13 -0500
+Processing by ManagerController#read_staff as HTML
+  [1m[36mAssoc Load (0.2ms)[0m  [1mSELECT "assocs".* FROM "assocs"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered manager/read_staff.erb within layouts/application (3.4ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/manager/read_staff" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+Processing by ManagerController#read_staff as HTML
+  [1m[36mAssoc Load (0.2ms)[0m  [1mSELECT "assocs".* FROM "assocs"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered manager/read_staff.erb within layouts/application (3.1ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/manager.css?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/staff.css?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/manager.js?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/staff.js?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-12 19:04:23 -0500
+
+
+Started GET "/manager/home_page" for 127.0.0.1 at 2014-02-12 19:04:26 -0500
+Processing by ManagerController#home_page as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered manager/home_page.erb within layouts/application (1.6ms)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.5ms)
